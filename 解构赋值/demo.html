@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var log = console.log;
+        // { // 数组解构赋值 
+        //     let a,b,rest;
+        //     [a,b] = [1,2];
+        //     log(a,b);
+        // }
+        // { 
+        //     let a,b,rest;
+        //     [a,b,...rest] = [1,2,3,4,5,6];
+        //     log(a,b,rest); // a :1，b:1 ,rest [3,4,5,6];
+        // }
+        // { // 对象解构赋值
+        //     let a,b ;
+        //     ({a,b} ={a:1,b:3});
+        //     log(a,b); 
+        // }
+        // { // rest 默认值  防止undefined
+        //     let a,b,rest;
+        //     [a,b,rest = 3] = [1,2];
+        //     log(a,b,rest);
+        // }
+        // { // 1 解构赋值例子
+        //     let a = 2;
+        //     let b = 3;
+        //     [a,b] = [b,a];
+        //     log(a,b);
+        // }
+        // { // 2 解构赋值例子
+        //     function f(){ return [1,2] };
+        //     let a,b;
+        //     [a,b] = f();
+        //     log(a,b);
+        // }
+        // { // 3解 构赋值例子
+        //     function f() { return [1,2,3,4,5] };
+        //     let  a,b,c;
+        //     [a,,,b,c] = f();
+        //     log(a,b);
+        // }
+        // { // 4 解构赋值例子
+        //     function f() { return [1,2,3,4,5] };
+        //     let  a,b,c;
+        //     [a,...b] = f();
+        //     log(a,b);
+        // }
+        { // 对象结构赋值
+            let o = {p:42,q:true};
+            let {p,q} = o;
+            log(p,q);
+        }
+        {  // 对象结构赋值
+            let {a = 10,b = 5}  = {a:3};
+            log(a,b);
+        }
+        {
+            let meatdate = {
+                title:'abc',
+                test:[{
+                    title:'test',
+                    desc:'description'
+                }]
+            }
+            let {title:esTitle,test:[{title:title}]} = meatdate;
+            log(esTitle,title);
+        }
+    </script>
+</body>
+</html>
