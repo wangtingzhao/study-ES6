@@ -13,6 +13,35 @@
             let regex = new RegExp('xyz','i');
             let regex2 = new RegExp(/xyz/i);
             log(regex.test('xyz123'),regex2.test('xyz123'));
+            
+            let regex3 = new RegExp(/xyz/ig,'i');
+            // flags  获取修饰符
+            console.log(regex3.flags);
+        }
+        {
+            let  s = 'bbb_bb_b';
+            let a1 = /b+/g;
+            let a2 = /b+/y;
+            // 全局匹配 g 
+            console.log('one',a1.exec(s),a2.exec(s));
+            // 只匹配 
+            console.log('one',a1.exec(s),a2.exec(s));
+            console.log(a1.sticky,a2.sticky);
+        }
+        {
+            //  大于两个字节   . 不可匹配所有字符  只可匹配小于两个字节的字符;
+            // u  =  unicode 只匹配 unicode编码
+            log('u-1',/^\uD83D/.test('\uD83D\uDC2A'));
+            log('u-2',/^\uD83D/u.test('\uD83D\uDC2A'));
+
+            log(`\u{20BB7}`)
+            let s = '𠮷';
+            // 字符串大于两个字节加 u
+            console.log('u',/^.$/.test(s));
+            console.log('u',/^.$/u.test(s));
+            log('test-1',/𠮷{2}/.test('𠮷𠮷'))
+            log('test-2',/𠮷{2}/u.test('𠮷𠮷'))
+            
         }
     </script>
 </body>

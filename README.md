@@ -126,4 +126,52 @@ console.log(i); // i in not defined;
     4. y修饰符
     5. s修饰符
 
-    
+### 构造函数的变化
+ 
+ ````
+ 
+ {
+     <!--  es5写法 -->
+     let regex = new RegExp('xyz','i');
+     let regex2 = new RegExp(/xyz/i)
+     console.log(regex.text('xyz123'),regex2.text('xyz123')) //  true true
+    <!-- 覆盖 第一个参数的修饰符 -->
+     let  regex3 = new RegExp(/xyz/ig,'i');
+     //新增属性 flags 获取修饰符  
+     cosnole.log(regex.flags);
+ }
+ ````
+
+
+ ###  y修饰符
+ ````
+ {
+     let s = 'bbb_bb_b';
+     let a1 = /b+/g; // 全局匹配
+     let a2 = /b+/y; // 全局匹配 只匹配一次后面参数如果匹配不上返回null
+     log(a1.exec(s),a2.exec(s));// bbb bbb 
+     log(a1.exec(s),a2.exec(s)); // bb null
+     //  sticky 判断正则是否用了y修饰符;
+     console.log(a1.sticky,a2.sticky) //false true
+ }
+ ````
+
+ ### u修饰符
+
+ ````
+ {
+     <!-- unicode 匹配unicode编码 -->
+      //  大于两个字节   . 不可匹配所有字符  只可匹配小于两个字节的字符;
+        // u  =  unicode 只匹配 unicode编码
+        log('u-1',/^\uD83D/.test('\uD83D\uDC2A'));   // true
+        log('u-2',/^\uD83D/u.test('\uD83D\uDC2A'));  // false
+
+        log(`\u{20BB7}`)
+        let s = '𠮷';
+        // 字符串大于两个字节加 u
+        console.log('u',/^.$/.test(s));
+        console.log('u',/^.$/u.test(s));
+        log('test-1',/𠮷{2}/.test('𠮷𠮷'))
+        log('test-2',/𠮷{2}/u.test('𠮷𠮷'))
+ }      
+ ````
