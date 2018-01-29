@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数值拓展</title>
+</head>
+<body>
+    <script>
+        var log  = console.log;
+        /*
+            二级制和八进制表示法
+        */ 
+        // log(0b111110111 == '503') // true
+        // log(0o767 == '503'); // true
+
+        /*
+            Number.isFinite()
+            用于检查数值
+        */   
+        // log(Number.isFinite(15)); // true;
+        // log(Number.isFinite('foo')); //false;
+        // log(Number.isFinite(Infinity)) // false;
+
+        // log(Number.isNaN('foo')); // false
+        // log(Number.isNaN(12345)); // false
+        // log(Number.isNaN(NaN)); //  true
+        // log(isFinite(25)); //  true
+        // log(isFinite('25')); // true
+        // log(Number.isFinite(25)) //  true
+        // log(Number.isFinite('25'));// false; 
+        // log(isNaN(NaN));  // true
+        // log(isNaN('NaN')); // true
+        // log(Number.isNaN(NaN)); // true
+        // log(Number.isNaN('NaN')); // false
+        /*
+            Number.isInteger() 用于判断一个数组是不是整数
+        */ 
+        // log(Number.isInteger(25)); // true 
+        // log(Number.isInteger('25'));// false  
+        // log(Number.isInteger(25.1)); // false
+        /*
+            ES6 在Number对象上面，新增一个极小的常量Number.EPSILON。根据规格，它表示 1 与大于 1 的最小浮点数之间的差。
+        */ 
+        log(Number.EPSILON);
+    </script>
+</body>
+</html>
