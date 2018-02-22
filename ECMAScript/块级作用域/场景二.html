@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var s = 'Hello World!'
+        for(var i=0;i<s.length;i++){ 
+            console.log(s[i]);
+        }
+        console.log('循环结束!!');
+        //  循环变量泄露为全局变量
+        console.log(i); // 12
+    </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // const PI = 3.1415926535;
+        // console.log(PI); // 3.1415926535
+        // console.log(5*PI); // 15.7079632675
+        
+        // 块级作用域
+        // if(true){
+        //     const s = 2;
+        // }
+        // console.log(s) // s is not defined
+
+        // 暂时性死区
+        // if(true){
+        //     console.log(a); // a is not defined
+        //     const a = 3;
+        // }
+
+        // 不可重复声明
+        // {
+        //     var a  = 200;
+        //     const a = 300;
+        //     console.log(a); // Identifier 'a' has already been declared
+        // }
+        
+
+        // const 对象
+        // const person = {};
+        // person.name = 'Zhangsan';
+        // person.age  = 20;
+        // console.log(person.name);
+        // console.log(person.age);
+        // console.log(person);
+
+        //  const对象冻结
+        // const obj = Object.freeze({
+        //     name: 'Zhangsan',
+        //     age : 30
+        // });
+        // console.log(obj.name); // Zhangsan;
+        // cosnole.log(obj.age) // 30;
+        // console.log(obj); // object {name : 'Zhangsan',age : 30}
+
+        // 对象冻结函数
+        var  contsize = (obj) => {
+            Object.freeze(obj);
+            Object.keys(obj).forEach( (key, value) => {
+                if(typeof obj[key] === 'object'){
+                    contsize(obj[key])
+                }
+               
+            })
+        }
+    </script>
+</body>
+</html>

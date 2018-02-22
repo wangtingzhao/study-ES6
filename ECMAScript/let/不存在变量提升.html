@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var log = console.log;
+        log('ES5:');
+        var a = [];
+        for(var i=0;i<10;i++){
+            var c = i;
+            a[i] = function(){
+                log(c)
+            }
+        }
+        a[5](); // 5
+        log("ES6")
+        var b = [];
+        for(var i=0;i<10;i++){
+            let d = i;
+            b[i] = function(){
+                log(d);
+            }
+        }
+        b[5](); // 5
+    </script>
+</body>
+</html>

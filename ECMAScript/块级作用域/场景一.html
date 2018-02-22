@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var time = new Date();
+
+        function fun(){ // 内层变量可能会覆盖外层变量
+            console.log(time);
+            if(false){
+                var time = "Hello World!";
+            }
+        };
+        fun(); // undefined 
+    </script>
+</body>
+</html>
