@@ -162,6 +162,21 @@ fun () {
     }
     console.log(num);
 };
+fun();
+
+ var foo = 'aaa';
+ function bur ( fun = () => foo ){
+     var foo = 'bbb';
+     cosnole.log(foo());
+ }
+ bur() // aaa;
+
+  var foo = 'aaa';
+ function bur ( fun = () => foo ){
+     foo = 'bbb';
+     cosnole.log(foo());
+ }
+ bur() // bbb;
 console.log('ES5:')
     function fun (){
         var nums = 200;
@@ -170,6 +185,9 @@ console.log('ES5:')
         }
         console.log(nums);
     }
+
+
+
 </script>
 立即执行函数
 <script>
