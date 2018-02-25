@@ -222,5 +222,107 @@ console.log('ES5:')
 ```
 const 也用来声明变量,但是声明的是常量.
 一旦声明,常量的值无法改变.
+<script>
+const pi = 3.1415926535;
+console.log(pi);
+pi = 3; // 报错 PI is read-only -- Error;
+console.log(pi) 
+<!-- 块级作用域 -->
+if(false){
+    cosnt s = '123';
+}
+console.log(s); // s is not defined;
+
+<!-- 暂时性死区 -->
+if(true){
+    console.log(s);
+    const s = '123';
+}
+<!-- 不可重复声明 -->
+{   
+    const s = 1;
+    const s = 2; 
+    console.log(s);  //  Identifier 'a' has already been declared
+}
+
+//const 对象
+const obj = {};
+obj.name = '张三';
+obj.age = 29;
+console.log(obj,obj.name,obj.age); Object { name:'张三',age: 29 }  张三   29
+
+// const 对象结冻；
+
+const obj1 = Object.freeze({
+    name:'张三'，
+    age :29
+});
+console.log(obj1,obj1.name,obj1.age);
+
+// 对象结冻函数
+function freeze(obj){
+    Object.freeze(obj);
+    Object.keys(obj).forEach((key, value) => {
+        if(typeof obj[key] === 'object'){
+            freeze(obj[key])
+        }
+    })
+} 
+const freeze = (obj) =>{
+    Object.freeze(obj);
+    Object.keys(obj).forEach((key, value) =>{
+        if(typeof obj[key] === 'object' ){
+            freeze(obj[key]);
+        };
+    });
+};
+</script>
+ // 跨模块常量
+ <cript>
+    // module.js
+    export const intVariantName = 100;
+    export const FloatVariantName = 3.1415926;
+    export const chatVariantName = 'variantValue';
+
+    // use.js
+    import * as variant from './module';
+    console.log(variant.intVariantName);
+    console.log(variant.FloatVariantName);
+    console.log(variant.chatVariantName);
+
+    // othuse.js
+    import { FloatVariantName, chatVariantName } as variant from './module'
+    console.log(variant.FloatVariantName);
+    console.log(variant.chatVariantName);
+
+    // onlyuse.js
+    import intVariantName as variant from './module.js'
+    console.log(variant.intVariantName);
+ </script>
+ // 全局对象的属性
+<script>
+    /*
+        全局对象是最顶层的对象，在浏览器环境是指Window对象，在Nodejs指的是global对象。在javascript语言中，所有全局变量都是全局对象的属性。（Node的情况比较特殊，这一条对ERPL环境适用，模块环境必须显式声明成global的属性。）
+
+        ES6规定，var命令，function命令声明的全局变量，属于全局对象的属性；
+        let命令，const命令,class命令声明的全局变量，不属于全局对象的属性。
+    */
+    
+    var varName = 'varValue';
+    // 浏览器环境下
+    console.log(window.varName);
+    // Node环境下
+    console.log(global.varName);
+    // 通用环境下
+    console.log(this.varName);
+
+    /*
+        use strict
+        let 声明的变量在严格模式下会使用window.letName 会报错 undefined  
+    */ 
+    let letName = 'letValue';
+    console.log(window.letName); 
+    console.log(this.letName);
+</script>
 ```
    
