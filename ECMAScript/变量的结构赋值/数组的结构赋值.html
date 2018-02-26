@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数组的解构赋值</title>
+</head>
+<body>
+    <script>
+        // 数组解构使用
+        var [a,b,c] = [1,2,3];
+        console.log(a,b,c);
+
+        // 对应位置
+        let [ A, [ [ B ], C ] ] = [1,[[2],3]];
+        console.log(A,B,C);
+        
+        let [ , , three] = ['one', 'two', 'three'];
+        console.log(three);
+
+        let [One, , Three] = ['One', 'Two', 'Three'];
+        console.log(One,Three);
+
+        let [head, ...tial] = [0,1,2,3,4,5,6,7,8,9];
+        console.log(head);
+        console.log(tial);
+
+        // 数组解构不成功
+        
+        var [temp] = [];
+        console.log(temp); // undefined
+        var [temp,temp1] = [100];
+        console.log(temp); // 100
+        console.log(temp1);// undefined
+    </script>
+</body>
+</html>

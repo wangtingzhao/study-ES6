@@ -325,4 +325,56 @@ const freeze = (obj) =>{
     console.log(this.letName);
 </script>
 ```
+
+## 变量的解构赋值
+1、数组的解构赋值
+```
+    /*
+        Destructuring
+         ES6允许按照一定的模式，从数组和对象中提取值，对变量进行赋值，这被称为解构（Destructuring）;
+
+        不完全解构
+         等号左边的模式，只匹配一部分的等号右边的数组。
+
+        指定默认值
+         * 注意 ：ES6内部使用严格模式相等运算符（===）判断一个位置是否有值。所以，如果一个数组成员不严格等于undefined，默认值是不会生效的。
+        
+        let 和 const 命令
+            只要某种数据结构具有lterator接口，都可以采用数组形式的解构赋值
+    */
+    <script>
+        // 数组解构赋值使用
+        let [ a, b, c ] = [ 1, 2, 3 ];
+        console.log(a);
+        console.log(b);
+        console.log(c);
+        
+        // 对应位置
+        let [A, [ [B], C ] ] = [ 1,[ [ 2 ], 3 ] ];
+        console.log(A);
+        console.log(B);
+        console.log(C);
+
+        let [ , , three ] = [1,2,3];
+        console.log(three);
+
+        let [ One, , Three ] = [1,2,3];
+        console.log(One);
+        console.log(Three);
+
+        let [ head, ...tial ] = [0,1,2,3,4,5,6,7,8,9];
+        console.log(head);
+        cosnole.log(tial);
+        
+        // 数组解构不成功
+
+        let [temp] = [];
+        console.log(temp);
+
+        let [ temp, temp1 ] = [100];
+        console.log(temp);
+        console.log(temp1);
+        
+    </script>
+```
    
