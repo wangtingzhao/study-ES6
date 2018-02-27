@@ -375,6 +375,134 @@ const freeze = (obj) =>{
         console.log(temp);
         console.log(temp1);
         
+        // 不完全解构
+        
+        let [x, y] = [1, 2, 3];
+        console.log(x); // 1
+        console.log(y); // 2
+
+        let [a, [b], c] = [1,[2, 3], 4];
+        console.log(a);
+        console.log(b);
+        console.log(c);
+        
+        // 指定默认值
+        let [temp = 'string'] = [];
+        console.log(temp); // string;
+        let [temp = 'string'] = [strings];
+        console.log(temp); // strings 
+        let [a = 'aaa', b] = ['bbb'];
+        console.log(a); // bbb
+        console.log(b); // undefined
+        let [a, b = 'aaa'] = ['bbb];
+        console.log(a); // bbb
+        console.log(b); // aaa
+        let [a, b = 'bbb'] = ['aaa',undefined];
+        console.log(a); // aaa
+        console.log(b); // bbb
+        
+        // Iterator 接口
+        let [a, b, c] = new Set(['a','b','c']);
+        console.log(a);
+        console.log(b);
+        console.log(c);
+
+        function* fibs(){
+            let a = 0;
+            let b = 1;
+            while (true) {
+                yield a;
+                [a, b] = [b, a + b]; s      
+            }
+        }
+        var [first, second, third, fourth, fifth, sixth] = fibs();
+        console.log(sixth);
+
     </script>
+```
+2、对象的解构赋值
+```
+/*
+    解构不仅可以用于数组，还可以用于对象
+        对象的属性没有次序，变量必须与属性同名，才能取到正确的值。
+    
+    指定的默认值
+        默认值生效的条件是，对象的属性严格等于undefined。
+    
+    现有对象的方法
+        对象解构赋值，可以很方便地将现有对象的方法，赋值到某个变量。
+*/
+<script>
+    let {name, age} = {name:'张三', age: 18};
+    console.log(name);
+    console.log(age);
+
+    let { person_id, person_name, person_age } = {name:'张三', age: 18, id: '007'};
+    console.log(person_id);     // undefined
+    console.log(person_name);   // undefined
+    console.log(preson_age);    // undefined
+
+    let { id: person_id, name: person_name, age: person_age } = {name:'张三', age: 18, id: '008'};
+
+    console.log(person_name);       // 张三
+    console.log(person_age);        // 18
+    console.log(person_id);         // 008
+
+    let object = { frist: 'Hello', last: 'World'};
+    let { frist: fristName, last: lastName } = object;
+    console.log(fristName);
+    console.log(lastName);
+    
+    // 默认值
+    let { x = 3 } = {};
+    console.log(x);
+
+    let {x, y = 3} = {x:1};
+    console.log(x);
+    console.log(y);
+
+    let {message: msg = 'You Are Person'} = {};
+    console.log(msg);
+    
+    // 对象解构严格条件等于undefined 
+    let {x = 1;} = {x:undefined};
+    console.log(x); // 1
+
+    let {y = 3} = {y = null};
+    console.log(y) // unll 
+    
+    // 已声明变量的解构
+
+    /*
+        报错写法：
+        var s ;
+        {s} = {s:1};
+        console.log(s);
+    */
+    // 正确写法
+    var s ;
+    ({s} = {s:1});
+    console.log(s);
+
+    // 现有对象的方法
+        console.log(Math.sin(Math.PI/6));   //0.49999999999999994
+        
+        let {sin, cos, tan, log} = Math;
+        console.log(sin(Math.PI/6));     
+</script>
+
+```
+3、字符串的j解构赋值
+```
+/*
+    字符串也可以解构赋值
+        字符串被转换成为一个类似数组的对象  
+
+    属性解构赋值
+        类似数组的对象都有一个leng属性,因此还可以对这个属性解构赋值。
+*/
+<script>
+
+</script>
 ```
    

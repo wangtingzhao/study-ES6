@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let {name, age, id} = {id:'007', name:'张三', age:18};
+        // console.log(name); // 张三
+        // console.log(age); //18
+        // console.log(id);  //007
+
+        // let {person_name, person_age, person_id} = {id:'007', name:'张三', age:18};
+        // console.log(person_name);    // undefined
+        // console.log(person_age);     // undefined
+        // console.log(person_id);     //  undefined
+        
+        let {name: person_name, age: person_age, id: person_id} = {id:'007', name:'张三', age:18};
+        console.log(person_name); // 张三
+        console.log(person_age); //18
+        console.log(person_id);  //007
+
+        let object = { first: 'Hello', last: 'World' };
+        let { first: firstName, last: lastName } = object;
+        console.log(firstName);
+        console.log(lastName);
+
+        // 默认值
+        let { s = 3 } = {};
+        console.log(s);
+
+        let {x, y=1} = {x:1};
+        console.log(x);
+        console.log(y);
+
+        let {message:msg = 'You are Person'} = {};
+        console.log(msg);
+
+        // 对象解构默认条件严格等于undefined
+        let {o = 3} = {o: undefined};
+        console.log(o); // 3
+
+        let {p = 3}  = {p:null};
+        console.log(p);
+
+        // 已声明变量的解构赋值
+        /*
+            var r;
+            {r} = {r: 1}   // 报错   
+            console.log(r);
+        */ 
+        var r;
+       ({r} = {r: 1});
+        console.log(r);
+        // 现有对象的方法
+        console.log(Math.sin(Math.PI/6));   //0.49999999999999994
+        
+        let {sin, cos, tan, log} = Math;
+        console.log(sin(Math.PI/6));        // 0.49999999999999994
+    </script>
+</body>
+</html>

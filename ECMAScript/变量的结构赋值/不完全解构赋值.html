@@ -8,7 +8,49 @@
 </head>
 <body>
     <script>
+        // let [x, y] = [1, 2, 3];
+        // console.log(x); // 1
+        // console.log(y); // 2
         
+        // let [a, [b], c] = [1,[2, 3], 4];
+        // console.log(a); // 1
+        // console.log(b); // 2
+        // console.log(c); // 4
+
+        // // 指定默认值
+        // let [str = 'string'] = [];
+        // console.log(str); // string
+        // let [str1 = 'string'] = ['strings'];
+        // console.log(str1); // strings
+        // let [str2 = 'strings', str3] = ['strings2'];
+        // console.log(str2); // strings2
+        // console.log(str3); // undefined
+        // let [str4, str5  = 'aaa'] = ['bbb'];
+        // console.log(str4); // aaa
+        // console.log(str5); // bbb
+        // let [str6, str7 = 'aaa'] = ['bbb',undefined];
+        // console.log(str6); // bbb
+        // console.log(str7); // aaa 
+        
+        // // let [temp] = 1;
+        // // console.log(temp); // 1 is not iterable
+
+        // // Iterator接口
+        // let [A, B, C] = new Set(['a','b','c']);
+        // console.log(A);
+        // console.log(B);
+        // console.log(C);
+
+        function* fibs() {
+            let a = 0;
+            let b = 1;
+            while (true) {
+                yield a;
+                [a, b] = [b, a + b];       
+            }
+        };
+        var [first, second, third, fourth, fifth, sixth] = fibs();
+        console.log(sixth);
     </script>
 </body>
 </html>
