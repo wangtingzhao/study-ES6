@@ -502,7 +502,91 @@ const freeze = (obj) =>{
         类似数组的对象都有一个leng属性,因此还可以对这个属性解构赋值。
 */
 <script>
+    const = [a, b, c, d, e] = 'hello';
+    console.log(a) // h
+    console.log(b) // e
+    console.log(c) // l
+    console.log(d) // l
+    console.log(e) // o
+
+    // 字符串的length 属性
+    const {length: len} = 'hello';
+    console.log(len); // 5
+
+    const {length} = 'hello world!';
+    console.log(length); // 12
 
 </script>
 ```
-   
+4、函数的解构赋值
+````
+/*
+    函数的参数也可以解构赋值
+
+    函数参数的解构也可以使用默认值
+*/
+<script> 
+    // 函数参数解构赋值
+    fun sum ({x,y}){
+        return x + y;
+    }
+    console.log(sum({x:1, y: 2})) // 3
+
+    // 函数参数解构赋值的默认值
+    function fun({x: 0, y: 0} = {}){
+        return [x, y];
+    }
+    console.log(fun({x: 100, y: 200}));   // [100,200]
+    console.log(fun({x: 100}));           // [100,0]
+    console.log(fun({}));                 // [0,0]
+    console.log(fun());                   // [0,0]
+
+    function funs({x , y} = {x: 0, y: 0}) {
+        return [x, y];
+    }
+    console.log(fun({x: 100, y: 200}));   // [100,200]
+    console.log(fun({x: 100}));           // [100,undefined]
+    console.log(fun({}));                 // [undefined,undefined]
+    console.log(fun());                   // [0,0]
+</script>
+````
+5、解构赋值的用途
+````
+/*
+    交换变量的值
+    从函数返回多个值
+    函数参数的定义
+    提取json数据
+    函数参数的默认值
+    遍历Map的结构
+    输入模板的指定方法
+*/
+<script>
+    /*
+        交换变量
+    */
+    <!-- ES5 -->
+    var a  = 100,
+        b  = 200,
+        temp ;
+    <!-- 交换前 -->
+    console.log('a',a);   // 100
+    console.log('b',b);   // 200
+    temp = a;
+    a = b;
+    b = temp;
+    <!-- 交换后 -->
+    console.log('a',a);   // 200
+    console.log('b',b);   // 100
+
+    <!-- ES6 -->
+    let [x, y] = [100,200];
+    <!-- 交换前 -->
+    console.log('x',x);   // 100
+    console.log('y',y);   // 200
+    [x, y] = [y, x];
+    <!-- 交换后 -->
+    console.log('x',x);   // 200
+    console.log('y',y);   // 100
+</script>
+````
