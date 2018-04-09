@@ -9,31 +9,133 @@
 <body>
     <script>
         /*
-            交换变量的值
+            //交换变量的值
+                console.log('ES5');
+                var a = 100,
+                    b = 200,
+                    temp;
+                console.log('交换前:');
+                console.log('a:',a);
+                console.log('b:',b);
+                temp  = a;
+                a = b;
+                b = temp;
+                console.log('交换后:');
+                console.log('a:',a);
+                console.log('b:',b);
+                console.log('ES6:');
+                let [x, y] = [100,200];
+                console.log('交换前:');
+                console.log('x:',x);
+                console.log('y:',y);
+                [x, y] = [y, x];
+                console.log('交换后:');
+                console.log('x:',x);
+                console.log('y:',y);
         */ 
-        console.log('ES5');
-        var a = 100,
-            b = 200,
-            temp;
-        console.log('交换前:');
-        console.log('a:',a);
-        console.log('b:',b);
-        temp  = a;
-        a = b;
-        b = temp;
-        console.log('交换后:');
-        console.log('a:',a);
-        console.log('b:',b);
-        console.log('ES6:');
-        let [x, y] = [100,200];
-        console.log('交换前:');
-        console.log('x:',x);
-        console.log('y:',y);
-        [x, y] = [y, x];
-        console.log('交换后:');
-        console.log('x:',x);
-        console.log('y:',y);
+        /*
+            // 从函数返回多个值
+       
+        
+                function fun () {
+                    return [1, 2, 3];
+                };
 
+                var [x, y, z] = fun();
+                console.log(x);
+                console.log(y);
+                console.log(z);
+
+                function funs () {
+                    return {
+                        id   : '023',
+                        name : 'Mr.Wang',
+                        age  : 26
+                    };
+                }; 
+
+                var {id, name, age} = funs();
+                console.log(id);
+                console.log(name);
+                console.log(age);
+
+                var {id: person_id, name: person_name, age: person_age} = funs();
+                console.log(person_id);
+                console.log(person_name);
+                console.log(person_age);
+                
+                var obj = funs();
+                console.log(obj.id);
+                console.log(obj.name);
+                console.log(obj.age);
+         */ 
+        /*
+                函数参数的定义
+                function arrFun ([x, y, z]) {
+                    // x = 100;
+                    // y = 200;
+                    // z = 300;
+
+                }
+                fun([100,200,300])
+
+                function objFun ({id, name, age}) {
+                    // id   = '023';
+                    // name = 'Mr.Wang',  
+                    // age  =  26
+                };
+                objFun({id: '023', name: 'Mr.Wang', age: 26});
+        */  
+        /*
+                //提取JSON数据
+         
+                var jsonDate = {
+                        id:   '023',
+                        name: 'Mr.Wang',
+                        age:  26,
+                        score:{
+                            Chinese: 100,
+                            Maths:   110,
+                            Englist: 90
+                        }
+                };
+                console.log('ES5');
+                console.log('Person Number is:' + jsonDate.id);
+                console.log('Person name is:' + jsonDate.name);
+                console.log('Person age is:' + jsonDate.age);
+                console.log('Person Chinese is:' + jsonDate.score.Chinese);
+                console.log('Person Maths is:' + jsonDate.score.Maths);
+                console.log('Person English is:' + jsonDate.score.Englist);
+                
+                console.log('ES6');
+                let {id, name, age, score} = jsonDate;
+                console.log('Person Number is:' + id);
+                console.log('Person name is:' + name);
+                console.log('Person age is:' + age);
+                console.log('Person Chinese is:' + score.Chinese);
+                console.log('Person Maths is:' + score.Maths);
+                console.log('Person English is:' + score.Englist);
+         */ 
+        /*
+                //遍历Map结构
+          
+            var map = new Map();
+            map.set('id', '023');
+            map.set('name', 'Mr.Wang');
+            
+            // 获取键名和键值
+            for (let [key, value] of map) {
+                console.log(key+' is '+ value);
+            };
+            // 获取键名 
+            for (let [key] of map) {
+                console.log(key);
+            };
+            // 获取键值
+            for(let [, value] of map){
+                console.log(value);
+            }
+            */
     </script>
 </body>
 </html>
