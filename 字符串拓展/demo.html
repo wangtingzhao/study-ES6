@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    
+  </div>
+  <script>
+    let log = console.log
+    /*
+      三个方法都支持第二个参数，表示开始搜索的位置。
+      includes('o', 3)：返回布尔值，表示是否找到了参数字符串。
+      startsWith()：返回布尔值，表示参数字符串是否在原字符串的头部。
+      endsWith()：返回布尔值，表示参数字符串是否在原字符串的尾部。
+      使用第二个参数n时，endsWith的行为与其他两个方法有所不同。它针对前n个字符，而其他两个方法针对从第n个位置直到字符串结束。
+    */ 
+    let s = 'Hello world!'
+    // log(s.startsWith('Hello'))
+    // log(s.includes('o'))
+    // log(s.endsWith('!'))
+    
+    // log(s.startsWith('world', 6))
+    // log(s.endsWith('hello', 5))
+    // log(s.includes('Hello', 6))
+    
+    /*
+      repeat方法返回一个新字符串，表示将原字符串重复n次。
+      参数是 0 到-1 之间的小数，则等同于 0
+      参数NaN等同于 0。
+      参数是小数取整
+      参数 Infinity或负数  报错
+      参数是字符串，则会先转换成数字。
+    */ 
+    let str = 'str'
+    // log(str.repeat(3.5))
+    // log(str.repeat('4'))
+    /*
+      padStart和padEnd一共接受两个参数，第一个参数用来指定字符串的最小长度，第二个参数是用来补全的字符串。
+      padStart() padEnd()
+      省略第二个参数，默认使用空格补全长度。
+    */
+      // log(str.padStart(9, 'aasdas54d54as4d6554as'))
+      // log(str.padEnd(6, 'b'))
+
+      const tmpl = addrs => `
+        <table>
+          ${addrs.map(addr => `
+            <tr><tb>${addr.first}</tb></tr>
+            <tr><tb>${addr.last}</tb></tr>
+          `).join('')}
+        </table>
+      `
+      const data = [
+        {first: '<Jane>', last: 'Bond'},
+        {first: 'Lars', last: '<Croft>'},
+      ]
+      // console.log(tmpl(data))
+      var funcs = []
+      // for(var i=0;i<10;i++){
+      //   funcs.push(function () {console.log(i)})
+      // }
+      // funcs.forEach((func)=>{
+      //   func()
+      // })
+    //   for(let k = 0;k<10;k++){
+    //     funcs.push(function (){
+    //       console.log(k)
+    //     })
+    //   }
+    //   funcs.forEach(func => {
+    //     func()
+    //   })
+
+    //   let  obj1 = {name: 'ccc', age: 18},
+    //        obj2 = {address: 'beijing'},
+    //        obj3 = {},
+    //        obj = Object.assign({}, obj3, obj1, obj2);
+    //        log(obj1)
+    //        log(obj2)
+    //        log(obj3)
+    //        log(obj)
+    //   let color = 'redcolor'
+    //   let colorUrl = [...color, 'blue', 'yellow', 'prick']
+    //   console.log(colorUrl)
+      // setTimeout(function() {
+      //   console.log(1)
+      // }, 0);
+      // new Promise(function executor(resolve) {
+      //   console.log(2);
+      //   for( var i=0 ; i<10000 ; i++ ) {
+      //     i == 9999 && resolve();
+      //   }
+      //   console.log(3);
+      // }).then(function() {
+      //   console.log(4);
+      // });
+      // console.log(5);
+
+    // function *creatIterator() {
+    //   yield 1;
+    //   yield 2;
+    //   yield 3;
+    // }
+    // let interator = creatIterator();
+    // log(interator.next().value)
+    // log(interator.next().value)
+    // log(interator.next().value)
+    // log(interator.next().value)
+    
+    let arr = [1,2,3]
+    var arr1 = arr.fill(7, 2,3)
+    console.log(arr1)
+  </script>
+</body>
+</html>

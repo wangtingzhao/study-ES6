@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    ul li {list-style: none;}
+    .box{width:450px;height: 100%;position: absolute;margin: auto; left: 0;right: 0;top: 0;bottom: 0;}
+    .box_child{width: 100%;margin-bottom: 10px;}
+    .box_child li{float: left;width: 130px;margin-right: 10px;border: 1px solid red; border-radius: 2.5px;text-align: center;height: 30px;line-height: 30px;}
+  </style>
+</head>
+<body>
+  <div class="box">
+    <ul class="box_child box_child_0">
+      <li onclick="pusharr(0,1)">1</li>
+      <li onclick="pusharr(0,2)">2</li>
+      <li onclick="pusharr(0,3)">3</li>
+      <div style='clear: both;'></div>
+    </ul>
+    <ul class="box_child box_child_1">
+      <li onclick="pusharr(1,4)">4</li>
+      <li onclick="pusharr(1,5)">5</li>
+      <li onclick="pusharr(1,6)">6</li>
+      <div style='clear: both;'></div>
+    </ul>
+    <ul class="box_child box_child_2">
+      <li onclick="pusharr(2,7)">7</li>
+      <li onclick="pusharr(2,8)">8</li>
+      <li onclick="pusharr(2,9)">9</li>
+      <div style='clear: both;'></div>
+    </ul>
+  </div>
+  <script>
+    var arr = [0,0,0]
+    console.log(arr);  
+    function pusharr (key, val) {
+      console.log(key,val)
+        arr.fill(val, key, key+1)
+        console.log(arr)
+    }
+    var clear = setInterval(()=> {
+        for(var i=0;i<arr.length;i++){
+          console.log(arr[i])
+          if(arr[i] != 0) return false
+            console.log(arr.join(':'))
+            clearInterval(clear)
+        }
+    }, 3000)
+  </script>
+</body>
+</html>
